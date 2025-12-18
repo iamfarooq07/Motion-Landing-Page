@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 
 function Contact() {
   return (
@@ -56,7 +57,18 @@ function Contact() {
         </form>
       </div>
 
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-6 text-center">
+      <motion.div
+        initial={{ x: 500, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{
+          type: "spring",
+          stiffness: 120,
+          damping: 20,
+          duration: 0.4,
+        }}
+        className="w-full md:w-1/2 flex flex-col justify-center items-center p-6 text-center"
+      >
         <h1 className="text-6xl md:text-8xl font-extrabold text-blue-500 mb-6">
           Contact Us
         </h1>
@@ -78,7 +90,7 @@ function Contact() {
             Call Us
           </a>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
